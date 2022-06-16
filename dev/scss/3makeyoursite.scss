@@ -1,0 +1,43 @@
+.makeyoursite {
+    .wrapper {
+        position: relative;
+    }
+
+    &__title {
+        color: #000;
+        text-transform: uppercase;
+        position: relative;
+        z-index: 1;
+
+
+    }
+
+    &__content {
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+        top: -145px;
+        z-index: 0;
+
+    }
+
+    &__description {
+        margin-top: 160px;
+        position: relative;
+        display: block;
+    }
+
+    &__woman-img {
+        width: 61%;
+    }
+
+    &__arrow {
+        position: absolute;
+        max-width: 526px;
+        top: -200px;
+        bottom: 0;
+        left: 95px;
+        right: 0;
+        margin: auto;
+    }
+}

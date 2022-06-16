@@ -1,0 +1,40 @@
+.expert {
+    margin-top: 150px;
+
+    .wrapper {
+        margin: 0
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: flex-start;
+    }
+
+    &-img-wrapper {
+        position: relative;
+    }
+
+    &__img {
+        position: relative;
+        max-width: 92%;
+        right: -8%;
+    }
+
+    &__arrow {
+        position: absolute;
+        bottom: 40px;
+        left: -70px;
+    }
+
+    &__description {
+        margin: auto;
+        margin-top: 130px;
+        width: fit-content;
+    }
+
+    &__btn {
+        width: 210px;
+        height: 40px;
+    }
+}

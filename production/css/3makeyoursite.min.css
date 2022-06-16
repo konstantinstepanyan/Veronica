@@ -1,0 +1,44 @@
+.makeyoursite .wrapper {
+  position: relative;
+}
+
+.makeyoursite__title {
+  color: #000;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 1;
+}
+
+.makeyoursite__content {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  position: relative;
+  top: -145px;
+  z-index: 0;
+}
+
+.makeyoursite__description {
+  margin-top: 160px;
+  position: relative;
+  display: block;
+}
+
+.makeyoursite__woman-img {
+  width: 61%;
+}
+
+.makeyoursite__arrow {
+  position: absolute;
+  max-width: 526px;
+  top: -200px;
+  bottom: 0;
+  left: 95px;
+  right: 0;
+  margin: auto;
+}

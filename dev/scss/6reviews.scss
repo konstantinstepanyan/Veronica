@@ -1,0 +1,36 @@
+.reviews {
+
+
+    &__wrapper {
+        display: flex;
+        margin-top: 160px;
+    }
+
+    .review {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 280px;
+        background: #eee;
+        padding: 15px 20px;
+
+
+        &__user-wrapper {
+            display: flex;
+            flex-direction: column;
+        }
+
+        &__user-img {
+            max-width: 53px;
+        }
+
+        .username {
+            margin-top: 10px;
+        }
+
+        .proffesion {
+            color: grey;
+        }
+    }
+}

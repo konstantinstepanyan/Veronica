@@ -1,0 +1,23 @@
+.nav {
+
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    margin-top: 20px;
+
+    .logo {
+        cursor: pointer;
+    }
+
+    .menu {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 400px;
+
+        &__item {
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+    }
+}
