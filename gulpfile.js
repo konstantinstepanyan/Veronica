@@ -30,7 +30,8 @@ gulp.task("pug", function () {
         pretty: false,
       })
     )
-    .pipe(gulp.dest("production/"));
+    .pipe(gulp.dest("dev/"))
+    .pipe(gulp.dest("production/"))
 });
 
 gulp.task("scss", function () {
@@ -61,7 +62,7 @@ gulp.task("scss", function () {
     )
     .pipe(gcmq())
 
-
+    .pipe(gulp.dest("dev/css"))
 
     .pipe(gulp.dest("production/css"));
 

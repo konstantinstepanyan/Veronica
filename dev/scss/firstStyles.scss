@@ -1,7 +1,6 @@
 @import "basic/libs";
 /* smartgrid etc*/
 
-@import "basic/libs";
 @import "basic/fonts";
 @import "basic/media";
 
@@ -14,7 +13,7 @@
 
 $defaultFFamily: "Inter Thin";
 
-$allHeadersColor: #fff;
+$allHeadersColor: #000;
 
 $allPfontFamily: "Inter Thin";
 $allPColor: #777;
@@ -67,6 +66,13 @@ h1 {
   text-transform: uppercase;
 }
 
+.subtitle {
+  color: #000;
+  font-family: "Oswald Light";
+  text-transform: uppercase;
+  font-size: 1.8rem;
+}
+
 h3 {
   font-size: 2rem;
   font-family: "DM Sans Regular";
@@ -85,7 +91,8 @@ a {
   text-decoration: none;
 }
 
-p {
+p,
+span {
   font-family: $allPfontFamily;
   color: $allPColor;
 }
@@ -154,6 +161,7 @@ ul {
         margin-right: 15px;
         */
 
+    //size - это для col()
     @include size-galaxyS5(12);
     /* width: calc(100% - 30px); */
 
@@ -347,3 +355,4 @@ ul {
 @import "4selectedprojects";
 @import "5expert";
 @import "6reviews";
+@import "7latestblocks";

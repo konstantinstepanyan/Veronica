@@ -1,5 +1,33 @@
 # Мой Стартовый Шаблон Вёрстки
 
+PUG (шаблон написания блока):
+
+```
+.latestBlocks 
+   .wrapper //- делает обёртку, с паддингами слева и права по 30px
+      h2.title.latestBlocks__title latest blocks
+      div.latestBlocks__content
+      
+   .row.latestBlocks__row //- создаёт строку с display: flex, 
+   //- justify-content: space-between,     flex-wrap: wrap;
+
+      //- в начале файла был написан миксин. Здесь он только подключается
+      +blog('blog1', 'img/7latestblogs/webp/blog_1.webp', 
+      'Design system', 'How many participants for a ux interview',
+      ['Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed <br/> quia consequuntur magni dolores eos.']
+      )
+      //- создаёт блок, к этому классу применён миксин @include col().
+      //- @include col() -  это box-sizing: border-box; word-wrap: break-word; И
+      //-
+
+      +blog('blog2', 'img/7latestblogs/webp/blog_2.webp', 
+      'Development', 'How many participants for a ux interview',
+      ['Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed <br/> quia consequuntur magni dolores eos.']
+      )
+```
+
+---
+
 1. Скачать этот репозиторий архивом ИЛИ в пустой папке написать git init, затем git clone _ссылка на этот репозиторий_ ИЛИ в пустой папке написать git init, затем git pull _ссылка на этот репозиторий_;
 
 2. Написать в консоли: npm i (это сокращение от: npm install). Пойдет загрузка папки нужных зависимостей:

@@ -1,0 +1,19 @@
+.selectedProjects__content {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.selectedProjects__img {
+  width: 100%;
+}
+
+.selectedProjects__btn {
+  width: 145px;
+  height: 26px;
+}
