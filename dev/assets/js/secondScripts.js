@@ -1,6 +1,7 @@
 import { a, Slider } from './vars.js';
-import { appendInputMask } from './libs/imask.min.js';
 import { Popup } from './libs/popup.js';
+import { appendToHead } from './libs/appendToHead.js';
+
 
 //в JS можно использовать импорты, чтобы переменные, объекты и классы хранить в одном файле,
 //а использовать их - в другом
@@ -15,8 +16,17 @@ import { Popup } from './libs/popup.js';
 
 document.addEventListener('DOMContentLoaded', () => {
 
+
     //подключаем маску телефона для поля с телефоном
-    appendInputMask('.phone', '+{7}(000)000-00-00');
+    //imask подключается по CDN до secondScripts
+    const phone = document.querySelector('.form__input_phone');
+    const mask = IMask(phone, { mask: '+{7}(000)000-00-00' });
+
+
+
+
+
+
 
 
     //активируем попап

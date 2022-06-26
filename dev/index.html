@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html class="no-webp" lang="ru">
   <head>
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="assets/css/firstStyles.min.css" media="none" onload="media='all'">
     <link rel="stylesheet" href="assets/css/libs/normalize.min.css" media="none" onload="media='all'">
@@ -169,6 +170,22 @@
         </div>
       </div>
     </div>
+    <div class="wrapper">
+      <form class="form" action="assets/php/script.php" method="POST">
+        <div class="input-wrapper">
+          <input class="form__input form__input_name" type="text" name="name" maxlength="30" placeholder="Введите Ваше Имя:">
+        </div>
+        <div class="input-wrapper">
+          <input class="form__input form__input_phone" type="tel" placeholder="+7(___)___-__-__" name="tel" inputmode="text">
+        </div>
+        <div class="input-wrapper">
+          <textarea class="form__input form__input_textarea" name="description" placeholder="Введите Ваше сообщение:"></textarea>
+        </div>
+        <div class="title-wrapper">
+          <button class="btn"><span>LET'S GO! </span></button>
+        </div>
+      </form>
+    </div>
     <div class="popup">
       <div class="popup__window">
         <picture class="close-image">
@@ -189,15 +206,27 @@
         </div>
       </div>
     </div>
-    <script src="assets/js/secondScripts.js" type="module"></script>
+    <div class="wrapper nav_wrapper nav_wrapper_mobile">
+      <div class="nav"><img class="logo" src="assets/img/2nav/veronica.svg">
+        <div class="burger"><span class="burger__line line1"></span><span class="burger__line line2"></span><span class="burger__line line3"></span></div>
+        <div class="mobile-menu"><a class="mobile-menu__item mobile-menu__item_first" href="#"><span>Компаниям</span></a><a class="mobile-menu__item mobile-menu__item_second" href="#"><span>Соискателям</span></a><a class="mobile-menu__item mobile-menu__item_third" href="#"><span>Вакансии</span></a>
+          <div class="links">
+            <!--a(href="#").mobile-menu__item.mobile-menu__item_fourth.img-wrapper.inst.nav__item-rounded.nav__item_whiteimg(src="assets/img/nav/inst.svg").img-wrapper__img
+            -->
+            <!--a(href="#").mobile-menu__item.mobile-menu__item_fifth.img-wrapper.mail.nav__item-rounded.nav__item_white
+            img(src="assets/img/nav/at.svg").img-wrapper__img
+            
+            --><span class="mobile-menu__item mobile-menu__item_sixth number nav__item-rounded nav__item_white">+7 (905) 464 37 23</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://unpkg.com/imask@6.4.2/dist/imask.js" async></script>
+    <script src="assets/js/secondScripts.js" type="module" async></script>
     <script async>
-      function asyncAppendCSS(href) {
-          var css = document.createElement('link');
-          css.rel = "stylesheet";
-          css.href = href;
-          document.head.appendChild(css)
-      } 
-      asyncAppendCSS('assets/css/secondStyles.min.css');
+      function appendToHead(a,c){if("css"==a){var b=document.createElement("link");b.rel="stylesheet",b.href=c,document.head.appendChild(b)}if("js"==a||"javascript"==a){var d=document.createElement("script");d.src=c,document.head.appendChild(d)}}
+      
+      appendToHead('css', 'assets/css/secondStyles.min.css');
     </script>
     <script></script>
   </body>

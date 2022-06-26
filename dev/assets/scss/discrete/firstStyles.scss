@@ -6,8 +6,9 @@
 @import "../basic/myMixins";
 @import "../basic/vars";
 
-@import "../blocks/burgerMenu/burger";
-@import "../blocks/burgerMenu/mobile-menu";
+@import "../blocks/NavMobile/burger";
+@import "../blocks/NavMobile/mobileMenu";
+@import "../blocks/NavMobile/navMobile";
 
 
 /* */
@@ -77,7 +78,8 @@ h5 {
   color: $allHeadersColor;
 }
 
-a {
+a,
+.btn * {
   color: #fff;
   text-decoration: none;
 }

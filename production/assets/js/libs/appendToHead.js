@@ -1,0 +1,1 @@
+export function appendToHead(e,t){if("css"==e){var a=document.createElement("link");a.rel="stylesheet",a.href=t,document.head.appendChild(a)}if("js"==e||"javascript"==e){var d=document.createElement("script");d.src=t,document.head.appendChild(d)}}

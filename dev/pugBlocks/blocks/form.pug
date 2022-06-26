@@ -1,0 +1,12 @@
+
+.wrapper
+  form.form(action='assets/php/script.php' method='POST')
+    .input-wrapper
+      input.form__input.form__input_name(type='text' name='name' maxlength='30' placeholder='Введите Ваше Имя:')
+    .input-wrapper
+      input.form__input.form__input_phone(type='tel' placeholder='+7(___)___-__-__' name='tel' inputmode='text')
+    .input-wrapper
+      textarea.form__input.form__input_textarea(name='description' placeholder='Введите Ваше сообщение:')
+    .title-wrapper
+      button.btn
+        span LET'S GO! 

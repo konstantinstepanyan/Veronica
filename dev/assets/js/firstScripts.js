@@ -21,18 +21,18 @@ document.addEventListener('DOMContentLoaded', () => {
     })
 
     //инициализация Бургер Меню
-    /*
-         const menuToggler1 = new MenuToggler({
-             menuTriggerSelector: '.burger', //if burger, to onClick add class burger_close
-             menuSelector: '.mobile-menu',
-             transitionTime: '0.5s',
-             transitionType: 'linear',
-             menuDisplay: 'flex',
-             type: 'slide', //appear OR slide, appear by default
-             slideBegin: 'translate(160px, 20px)', // Обязательно добавлять px к любому числу (НЕ ДОЛЖНО БЫТЬ ТОЧКО С ЗАПЯТОЙ)
-             slideEnd: 'translate(0px, 20px)',  // Обязательно добавлять px к любому числу (НЕ ДОЛЖНО БЫТЬ ТОЧКО С ЗАПЯТОЙ)
-         });
-    */
+
+    const menuToggler1 = new MenuToggler({
+        menuTriggerSelector: '.burger', //if burger, to onClick add class burger_close
+        menuSelector: '.mobile-menu',
+        transitionTime: '0.5s',
+        transitionType: 'linear',
+        menuDisplay: 'flex',
+        type: 'slide', //appear OR slide, appear by default
+        slideBegin: 'translate(270px, -200px)', // Обязательно добавлять px к любому числу (НЕ ДОЛЖНО БЫТЬ ТОЧКО С ЗАПЯТОЙ)
+        slideEnd: 'translate(0px, -200px)',  // Обязательно добавлять px к любому числу (НЕ ДОЛЖНО БЫТЬ ТОЧКО С ЗАПЯТОЙ)
+    });
+
 
     //проверяем поддержку WEBP и меняем src у img на значенеи из data-ext, если не поддерживается WEBP
     //отменяем webp, если браузер не поддерживает
@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
     //подключаем ленивую загрузку
     lazyLoad();
 
-    
+
     function add() {
 
     }
