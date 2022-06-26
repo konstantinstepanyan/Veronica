@@ -19,24 +19,46 @@ gulp.task("clean", async function () {
   del.sync("dist");
 });
 
+
+
 gulp.task("pug", function () {
   //return gulp.src('dev/pug/*.pug')
 
   return gulp
-    .src("dev/pug/index.pug")
+    .src("dev/index.pug")
     .pipe(
       pug({
         doctype: "html",
         pretty: false,
       })
     )
-    .pipe(gulp.dest("dev/"))
     .pipe(gulp.dest("production/"))
+});
+
+
+gulp.task("min-html", function () {
+
+  return gulp
+    .src("dev/index.pug")
+    .pipe(
+      pug({
+        doctype: "html",
+        pretty: true,
+      })
+    )
+    .pipe(gulp.dest("dev/"))
+
+  //        .pipe(browserSync.reload({
+  //            stream: true
+  //        }))
 });
 
 gulp.task("scss", function () {
   return gulp
-    .src("dev/scss/*.scss")
+    //в папке scss -> папка blocks - это стили для каждого html-блока 
+    //discrete папка - содержит firstStyles - в ней стили для первого блока и изначального вида сайта ->
+    //secondStyles - всё остальное
+    .src("dev/assets/scss/discrete/*.scss")
     .pipe(
       sass({
         outputStyle: "compressed",
@@ -62,9 +84,20 @@ gulp.task("scss", function () {
     )
     .pipe(gcmq())
 
-    .pipe(gulp.dest("dev/css"))
 
-    .pipe(gulp.dest("production/css"));
+    .pipe(
+      sass({
+        outputStyle: "compressed",
+      })
+    )
+
+    //и в Dev и в Production отдаём сжатые css-файлы (firstStyles, secondStyles),
+    //т.к. всё равно их редактировать не буду.
+    //для редактирования и существет sass/scss
+
+    .pipe(gulp.dest("dev/assets/css"))
+
+    .pipe(gulp.dest("production/assets/css"));
 
   //        .pipe(browserSync.reload({
   //            stream: true
@@ -73,9 +106,9 @@ gulp.task("scss", function () {
 
 gulp.task("gcmq", function () {
   return gulp
-    .src("production/css/*.css")
+    .src("production/assets/css/*.css")
     .pipe(gcmq())
-    .pipe(gulp.dest("production/css/dist/"));
+    .pipe(gulp.dest("production/assets/css/dist/"));
 });
 
 gulp.task("toWebp", () => {
@@ -83,43 +116,30 @@ gulp.task("toWebp", () => {
 
   log("webp task");
 
-  return gulp.src('./dev/img/**/*.{png,gif,jpg}')
+  return gulp.src('./dev/assets/img/**/*.{png,gif,jpg}')
     .pipe(webp())
     .pipe(rename({ prefix: 'webp/' }))
-    .pipe(gulp.dest('./dev/img'));
+    .pipe(gulp.dest('./dev/assets/img'));
 
   return;
 });
 
 
 gulp.task("copyImages", function () {
-  return gulp.src("dev/img/**")
-    .pipe(gulp.dest("production/img"));
+  return gulp.src("dev/assets/img/**")
+    .pipe(gulp.dest("production/assets/img"));
 
   return;
 });
 
 gulp.task("copyFonts", function () {
-  return gulp.src("dev/fonts/**").pipe(gulp.dest("production/fonts"));
+  return gulp.src("dev/assets/fonts/**").pipe(gulp.dest("production/assets/fonts"));
 });
 
-gulp.task("html", function () {
-  return gulp.src("production/*.html");
-  //        .pipe(browserSync.reload({
-  //            stream: true
-  //        }))
-});
-
-gulp.task("script", function () {
-  return gulp.src("dev/js/*.js").pipe(gulp.dest("production/js"));
-  //        .pipe(browserSync.reload({
-  //            stream: true
-  //        }))
-});
 
 gulp.task("min-js", function () {
   return gulp
-    .src("dev/js/**")
+    .src("dev/assets/js/**")
     .pipe(
       minify({
         ext: {
@@ -128,7 +148,7 @@ gulp.task("min-js", function () {
         noSource: true,
       })
     )
-    .pipe(gulp.dest("production/js"));
+    .pipe(gulp.dest("production/assets/js"));
 });
 
 //gulp.task('browser-sync', function () {
@@ -141,25 +161,27 @@ gulp.task("min-js", function () {
 
 
 gulp.task("export", function () {
-  let buildHtml = gulp.src("production/*.html").pipe(gulp.dest("dist"));
+  let buildHtml = gulp.src("production/assets/*.html").pipe(gulp.dest("dist"));
 
-  let BuildCss = gulp.src("dev/css/**/*.css").pipe(gulp.dest("dist/css"));
+  let BuildCss = gulp.src("dev/assets/css/**/*.css").pipe(gulp.dest("dist/css"));
 
-  let BuildJs = gulp.src("dev/js/**/*.js").pipe(gulp.dest("dist/js"));
+  let BuildJs = gulp.src("dev/assets/js/**/*.js").pipe(gulp.dest("dist/js"));
 
-  let BuildFonts = gulp.src("dev/fonts/**/*.*").pipe(gulp.dest("dist/fonts"));
+  let BuildFonts = gulp.src("dev/assets/fonts/**/*.*").pipe(gulp.dest("dist/fonts"));
 
-  let BuildImg = gulp.src("dev/img/**/*.*").pipe(gulp.dest("dist/img"));
+  let BuildImg = gulp.src("dev/assets/img/**/*.*").pipe(gulp.dest("dist/img"));
 });
 
 gulp.task("watch", function () {
-  gulp.watch("dev/pug/**/*.pug", gulp.series("pug"));
-  gulp.watch("dev/scss/**/*.scss", gulp.series("scss"));
-  gulp.watch("dev/*.html", gulp.series("html"));
-  gulp.watch("./dev/img/**/*.{png,gif,jpg}", gulp.series("toWebp"));
-  gulp.watch("./dev/img/**/*", gulp.series("copyImages"));
-  gulp.watch("dev/fonts/**", gulp.series("copyFonts"));
-  gulp.watch("dev/js/*.js", gulp.series("min-js"));
+  gulp.watch("dev/index.pug", gulp.series("min-html"));
+  gulp.watch("dev/index.pug", gulp.series("pug"));
+  gulp.watch("dev/pugBlocks/basic/*.pug", gulp.series("pug"));
+  gulp.watch("dev/pugBlocks/blocks/*.pug", gulp.series("pug"));
+  gulp.watch("dev/assets/scss/**/*.scss", gulp.series("scss"));
+  gulp.watch("dev/assets/img/**/*.{png,gif,jpg}", gulp.series("toWebp"));
+  gulp.watch("dev/assets/img/**/*", gulp.series("copyImages"));
+  gulp.watch("dev/assets/fonts/**", gulp.series("copyFonts"));
+  gulp.watch("dev/assets/js/**", gulp.series("min-js"));
 });
 
 gulp.task("build", gulp.series("clean", "export"));
@@ -168,6 +190,7 @@ gulp.task("build", gulp.series("clean", "export"));
 gulp.task(
   "default",
   gulp.series(
+    "min-html",
     "pug",
     "scss",
     "toWebp",

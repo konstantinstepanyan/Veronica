@@ -1,0 +1,18 @@
+.nav_footer,
+.nav,
+.wrapper {
+    height: 100%;
+}
+
+
+
+.nav_footer {
+
+    .nav {
+        flex-direction: column;
+        padding: 20px 0;
+        display: flex;
+        justify-content: space-between;
+        height: 100px;
+    }
+}

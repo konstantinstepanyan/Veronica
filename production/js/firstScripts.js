@@ -1,1 +1,0 @@
-document.addEventListener("DOMContentLoaded",()=>{console.log(10),window.addEventListener("keydown",e=>{if(116==e.keyCode)return console.log(e.key),e.preventDefault(),!1})});

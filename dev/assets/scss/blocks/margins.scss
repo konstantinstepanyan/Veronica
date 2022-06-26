@@ -1,0 +1,32 @@
+$marginTopBlock: 100px; //margin-top для каждой секции сайта по умолчанию
+$marginTopBlockMD: 70px; //margin-top для каждой секции сайта MD (960px)
+$marginTopBlockSM: 40px; //margin-top для каждой секции сайта SM (780px)
+$marginTopBlockXS: 20px; //margin-top для каждой секции сайта XS (560px)
+
+.nav {
+    margin-top: $marginTopBlock/5;
+}
+
+.expert {
+    margin-top: $marginTopBlock*1.5;
+}
+
+.nav_footer {
+    margin-top: clamp($marginTopBlock/10, $marginTopBlock, $marginTopBlock);
+}
+
+.nav,
+.expert,
+.nav_footer {
+    @include md(margin-top, $marginTopBlockMD);
+    @include sm(margin-top, $marginTopBlockSM);
+    @include xs(margin-top, $marginTopBlockXS);
+}
+
+//как быть с маржинами?
+//Они должны быть резиновыми, не фиксиованными, и зависеть от ширины устройства
+//Чем меньше ширина - тем меньше маржин
+//Маржин между блоками сайта - это либо всегда одно число, либо разные числа, которые можно связать друг с другом
+//короче говоря, я создам одну переменную - это будет маржин между блоками по умолчанию
+//если между двумя блоками маржин не такой, как по умолчанию - ему присвою эту переменную делённую или умноженную на нужное число
+//также создам переменную маржина для каждого брейкпоинта и присвою их через @include

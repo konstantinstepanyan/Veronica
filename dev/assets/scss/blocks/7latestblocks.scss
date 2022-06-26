@@ -1,0 +1,52 @@
+@import "../basic/libs";
+/* smartgrid etc*/
+
+.latestBlocks {
+
+    &__content {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .profession {
+        margin-top: 34px;
+        max-width: 86px;
+        height: 30px;
+        background: #ddd;
+        border-radius: 37px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &__text {
+            font-size: 1rem;
+            color: #000;
+        }
+    }
+
+    .btn {
+
+        &__readMore {
+            margin-top: 19px;
+            color: #7F56D9;
+            background: none;
+            width: fit-content;
+        }
+    }
+
+    .blog {
+        display: flex;
+        flex-direction: column;
+        width: 47%;
+        @include sm(width, 100%);
+        max-height: 630px;
+        @include col();
+
+
+
+        &__img {
+            margin-top: 39px;
+            width: 100%;
+        }
+    }
+}

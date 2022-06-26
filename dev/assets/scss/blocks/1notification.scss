@@ -1,0 +1,18 @@
+$allPfontFamily: "Inter Thin";
+
+
+.notification {
+    font-family: "Inter Thin";
+    width: 100%;
+    height: 37px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #7F56D9;
+
+    text-align: center;
+
+    &__text {
+        color: #fff;
+    }
+}

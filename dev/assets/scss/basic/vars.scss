@@ -1,0 +1,76 @@
+/* default breakpoints*/
+/*
+$break_lg: 1100px;
+$break_md: 960px;
+$break_sm: 780px;
+$break_xs: 560px; 
+*/
+
+
+/* devices */
+/*
+$break_nestHubMax: 1280px;
+$break_nestHubMax_Height: 800px;
+
+$break_lg: 1100px;
+
+$break_iPadPro: 1024px;
+$break_iPadPro_Height: 1366px;
+
+$break_nestHub: 1024px;
+$break_nestHub_Height: 600px;
+
+$break_md: 960px;
+
+$break_sm: 780px;
+
+$break_iPad: 768px;
+$break_iPad_Height: 1024px;
+
+$break_xs: 560px;
+
+$break_surfaceDUO: 540px;
+$break_surfaceDUO_Height: 720px;
+
+$break_iPhone678Plus: 414px;
+$break_iPhone678Plus_Height: 736px;
+
+$break_pixel2XL: 411px;
+$break_pixel2XL_Height: 823px;
+
+$break_pixel2: 411px;
+$break_pixel2_Height: 731px;
+
+$break_iPhoneX: 375px;
+$break_iPhoneX_Height: 812px;
+
+$break_iPhone678: 375px;
+$break_iPhone678_Height: 667px;
+
+$break_galaxyS5: 360px;
+$break_galaxyS5_Height: 640px;
+
+$break_iPhone5SE: 320px;
+$break_iPhone5SE_Height: 568px;
+
+$break_galaxyFold: 280px;
+$break_galaxyFold_Height: 653px;
+*/
+
+
+$defaultFFamily: "Inter Thin";
+//$titleFontFamily: $defaultFFamily; так писать тоже можно
+$titleFontFamily: "Oswald Light";
+
+$allHeadersColor: #000;
+
+$allPColor: #777;
+
+$btnBGColor: #7F56D9;
+$btnTextColor: #fff;
+
+$btnHeight: 45px;
+$btnPadding: 10px 20px;
+
+$grList1: #8b1dcd, #0ac4f3, #eb1616;
+//список цветов градиента, которые применятся (может быть сколько угодно)

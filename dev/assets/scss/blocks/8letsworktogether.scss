@@ -1,0 +1,14 @@
+.letsworktogether {
+    height: 63%;
+
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 100%;
+    }
+
+    &__title {
+        margin-top: 110px;
+    }
+}

@@ -1,0 +1,48 @@
+block reviews 
+
+
+mixin review(username, proffesion, reviewText, imgDir, reviewTextClass)
+    .review 
+        .review__text-wrapper
+
+            //- этот цикл позволяет вставить тэг в текст reviewText. без цикла <br/> выводится текстом, а не тэгом. 
+            //- и с другими тэгами внутри текста - также
+            if (reviewText)
+                each i in reviewText
+                    p.i(class = reviewTextClass) !{i}
+
+        .review__user-wrapper 
+            img(class='review__user-img' src='placeholder.jpg' data-src=imgDir)
+            span.username= username
+            span.proffesion= proffesion
+            .stars-wrapper 
+                img(class='review__stars' src='placeholder.jpg' data-src='assets/img/6reviews/stars.png')
+
+
+.reviews 
+    .wrapper.reviews__wrapper 
+        //-   (если просто рельсы, то такой коммент будет в .html, если //-   - такой коммент в .html не перейдет)
+        //- последний параметр не обязателен.
+        +review('Kelly Williams', 
+        'Head of Design, Layers',  
+        ['Fantastic work. such an efficient streamlined way to obtain <br/> a design. Super happy thanks!'],
+        'assets/img/6reviews/webp/user1.webp', 
+        'review__text')
+        
+        +review('Ryan Bickle', 
+        'Inside Sales Rep., Ganjaflex',  
+        ['Highly professional brand development, design and implementation... <br/> very strategic and engaged.'],
+        'assets/img/6reviews/webp/user2.webp', 
+        'review__text')
+
+        +review('Brittany Ramsay', 
+        'Marketing Manager, Sonron',  
+        ['Veronica was amazing! We gave her a brief about what we were after - She <br/> quickly understood the issue and was also able to apply a solution in no time.'],
+        'assets/img/6reviews/webp/user3.webp', 
+        'review__text')
+
+        +review('Sandra Endru', 
+        'CEO, Condax',  
+        ['We are a design house, and I can say speaking from a place of experience that <br/> veronica completed her tasks in a very timely manner.'],
+        'assets/img/6reviews/webp/user4.webp', 
+        'review__text')
