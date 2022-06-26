@@ -1,0 +1,1 @@
+export let a="aezakmi";export class Slider{constructor(e,t){this.selector=e,this.autoplay=t.autoplay||!1,this.speed=t.speed||100}}

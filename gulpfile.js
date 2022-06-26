@@ -172,11 +172,11 @@ gulp.task("export", function () {
   let BuildImg = gulp.src("dev/assets/img/**/*.*").pipe(gulp.dest("dist/img"));
 });
 
+
 gulp.task("watch", function () {
-  gulp.watch("dev/index.pug", gulp.series("min-html"));
-  gulp.watch("dev/index.pug", gulp.series("pug"));
-  gulp.watch("dev/pugBlocks/basic/*.pug", gulp.series("pug"));
-  gulp.watch("dev/pugBlocks/blocks/*.pug", gulp.series("pug"));
+  gulp.watch("dev/pugBlocks/**", gulp.series("pug", "min-html"));
+  gulp.watch("dev/index.pug", gulp.series("pug", "min-html"));
+
   gulp.watch("dev/assets/scss/**/*.scss", gulp.series("scss"));
   gulp.watch("dev/assets/img/**/*.{png,gif,jpg}", gulp.series("toWebp"));
   gulp.watch("dev/assets/img/**/*", gulp.series("copyImages"));
@@ -190,8 +190,8 @@ gulp.task("build", gulp.series("clean", "export"));
 gulp.task(
   "default",
   gulp.series(
-    "min-html",
     "pug",
+    "min-html",
     "scss",
     "toWebp",
     "copyImages",

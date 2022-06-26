@@ -1,0 +1,1 @@
+export function lazyLoad(t="[data-src]",e="data-src",r={rootMargin:"0px 0px 50px 0px",threshold:0}){let o=new IntersectionObserver(function(t,r){t.forEach(t=>{t.isIntersecting&&(!function(t){const r=t.getAttribute(e);t.setAttribute("src",r)}(t.target),r.unobserve(t.target))})},r);document.querySelectorAll(t).forEach(t=>{o.observe(t)})}

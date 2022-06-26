@@ -1,0 +1,69 @@
+.popup {
+    overflow: hidden;
+    position: absolute;
+
+
+    // width: 100%;
+    // height: 100%;
+    // position: fixed;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    opacity: 1;
+    background: #000;
+    z-index: 999;
+
+
+    &__window {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 500px;
+        height: 300px;
+        background: #fff;
+    }
+
+    &__content-wrapper {
+        height: 75%;
+        width: 90%;
+        font-size: 1.5rem;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__header {
+        font-size: 2.5rem;
+        margin: 10px 0px;
+    }
+
+    &__paragraph {
+        margin: 10px 0px;
+    }
+
+    &__input-name {
+        width: 230px;
+        border: none;
+        border-bottom: 2px solid grey;
+    }
+}
+
+.popup__close {
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    width: 25px;
+    fill: #888;
+    transition: fill .3s linear;
+    cursor: pointer;
+
+    &:hover {
+        fill: #a00;
+    }
+}

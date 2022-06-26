@@ -1,6 +1,6 @@
 import { a, Slider } from './vars.js';
 import { appendInputMask } from './libs/imask.min.js';
-
+import { Popup } from './libs/popup.js';
 
 //в JS можно использовать импорты, чтобы переменные, объекты и классы хранить в одном файле,
 //а использовать их - в другом
@@ -18,4 +18,23 @@ document.addEventListener('DOMContentLoaded', () => {
     //подключаем маску телефона для поля с телефоном
     appendInputMask('.phone', '+{7}(000)000-00-00');
 
+
+    //активируем попап
+    const popup = new Popup({
+        targetSelector: '.btn_cart',
+        overlaySelector: '.popup',
+        windowSelector: '.popup__window',
+        closeBtnSelector: '.popup__close',
+        displayPopup: 'flex',
+        popupHeight: '100vh',
+        popupWidth: '100%',
+        disappearingTime: 600, //ms transition disappearing time
+        disappearingType: 'linear', //default val: ease transition disappearing type
+        slidingTime: 500, //ms transition sliding time
+        slidingType: 'linear', //default val: ease transition sliding type
+        slidingDir: 'top', //default: left
+        //autocloseTime: 2000, //ms
+        closeOnMiss: true,
+        closeOnKeys: '27, 67, 88' //esc 27, c - 67, x - 88
+    });
 });
