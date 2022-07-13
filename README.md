@@ -21,6 +21,21 @@ ___
 PUG (шаблон написания блока):
 
 ```
+
+mixin blog(blogClass, dirToImg, professionText, blogSubtitle, blogDescription, blogDescriptionClass)
+    .blog(class=blogClass)
+                img(class='blog__img' src='placeholder.jpg' data-src=dirToImg)
+                .profession
+                    span.profession__text= professionText
+
+                h3.subtitle.blog__subtitle= blogSubtitle
+
+                if (blogDescription)
+                each i in blogDescription
+                    p.i(class = blogDescriptionClass) !{i}
+
+                button.btn.btn__readMore Read more
+
 .latestBlocks 
    .wrapper //- делает обёртку, с паддингами слева и права по 30px
       h2.title.latestBlocks__title latest blocks

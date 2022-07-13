@@ -221,10 +221,20 @@
         </div>
       </div>
     </div>
-    <script src="https://unpkg.com/imask@6.4.2/dist/imask.js" async></script>
-    <script src="assets/js/secondScripts.js" type="module" async></script>
+    <script src="assets/js/libs/jquery/jquery.min.js"></script>
+    <script src="https://unpkg.com/imask@6.4.2/dist/imask.js"></script>
+    <script src="assets/js/secondScripts.js" type="module"></script>
     <script async>
-      function appendToHead(a,c){if("css"==a){var b=document.createElement("link");b.rel="stylesheet",b.href=c,document.head.appendChild(b)}if("js"==a||"javascript"==a){var d=document.createElement("script");d.src=c,document.head.appendChild(d)}}
+      function appendToHead(a,c){
+          if("css"==a)
+          {var b=document.createElement("link");
+          b.rel="stylesheet",
+          b.href=c,document.head.appendChild(b)
+          }
+          if("js"==a||"javascript"==a){
+              var d=document.createElement("script");
+              d.src=c,document.head.appendChild(d)}
+          }
       
       appendToHead('css', 'assets/css/secondStyles.min.css');
     </script>
