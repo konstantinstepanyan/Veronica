@@ -5,4 +5,13 @@
 @import "../blocks/8letsworktogether";
 @import "../blocks/9navfooter";
 @import "../blocks/form";
+
+@import "../basic/libs/slickslider/slick";
+
+//это тема для слайдера по дефолту
+@import "../basic/libs/slickslider/slick-theme";
+
+//мои правила, которы перепишут предыдущие для слайдера
+@import "../basic/libs/slickslider/myStyles.scss";
+
 @import "../blocks/popup";
