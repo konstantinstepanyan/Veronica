@@ -1,5 +1,5 @@
 import { a, Slider } from './vars.js';
-import { Popup } from './libs/popup.js';
+import { Popup } from './libs/popupClass.js';
 import { appendToHead } from './libs/appendToHead.js';
 
 //в JS можно использовать импорты, чтобы переменные, объекты и классы хранить в одном файле,
@@ -20,22 +20,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
     //активируем попап
     const popup = new Popup({
-        targetSelector: '.btn_cart',
-        overlaySelector: '.popup',
+        overlaySelector: '.popup_overlay',
         windowSelector: '.popup__window',
-        closeBtnSelector: '.popup__close',
-        displayPopup: 'flex',
-        popupHeight: '100vh',
-        popupWidth: '100%',
-        disappearingTime: 600, //ms transition disappearing time
-        disappearingType: 'linear', //default val: ease transition disappearing type
-        slidingTime: 500, //ms transition sliding time
-        slidingType: 'linear', //default val: ease transition sliding type
-        slidingDir: 'top', //default: left
+
+        //если один селектор, всё равно в массиве отправить его. 
+        //Массив, потому что их может быть несколько
+        //для closeBtnSelectors и closeOnKeys тоже самое
+
+        //триггеры:
+        triggerSelectors: ['.btn_cart'], //эементы вызывающие появление попапа
+        closeBtnSelectors: ['.popup__close', '.popup__send'], //элементы закрывающие попап (крестик, кнопка Отправить в попапе)
+        openOnKeys: [], //клавиши по которым должен открываться попап. должен быть массивом кнопок
+        closeOnKeys: [27], //esc 27, должен быть массивом кнопок
+        appearType: 'slide', //slide или reveal: выкатиться или появиться
+
         //autocloseTime: 2000, //ms
-        closeOnMiss: true,
-        closeOnKeys: '27, 67, 88' //esc 27, c - 67, x - 88
     });
+
+    console.log(popup);
+
+
 
     $('.slider').slick({
         dots: true, arrows: true
