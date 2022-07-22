@@ -29,19 +29,49 @@ export class Popup {
         this.hide();
 
         //по нажатию по триггерам будет открываться попап
+
+        //в this.TiggerSelectors перечислены нужные селекторы для открытия попапа.
+        //Проходим по ним циклом, и на каждой итерации берём все элементы на странице с каждым селектором
+        //И на каждый элемент с таким селектором вешаем слушатель событий
         this.triggerSelectors.forEach((item, index) => {
-            const popupTrigger = document.querySelector(item);
-            popupTrigger.addEventListener('click', this.show.bind(this));
-            popupTrigger.addEventListener('touchstart', this.show.bind(this));
+
+            //берём все элементы с селектором открытия попапа (сначала с первым, потом со вторым и т.д.)
+            const allTriggerInstances = document.querySelectorAll(item);
+
+            // console.log('allTriggerInstances:')
+            // console.log(allTriggerInstances)
+
+            //проходим по ним циклом
+            allTriggerInstances.forEach((item, index) => {
+                console.log('trigger instance:')
+                console.log(item)
+                //и на каждый элемент вешаем обработчик событий
+                item.addEventListener('click', this.show.bind(this));
+                item.addEventListener('touchstart', this.show.bind(this));
+            })
+
+
 
         });
 
-        //по нажатию по нужным элементам попап будет закрываться
+        //в this.closeBtnSelectors перечислены нужные селекторы для закрытия попапа.
+        //Проходим по ним циклом, и на каждой итерации берём все элементы на странице с каждым селектором
+        //И на каждый элемент с таким селектором вешаем слушатель событий
         this.closeBtnSelectors.forEach((item, index) => {
-            const closeBtn = document.querySelector(item);
-            console.log(closeBtn);
-            closeBtn.addEventListener('click', this.hide.bind(this));
-            closeBtn.addEventListener('touchstart', this.hide.bind(this));
+            //берём все элементы с селектором закрытия попапа (сначала с первым, потом со вторым и т.д.)
+            const allCloseBtnInstances = document.querySelectorAll(item);
+
+            // console.log('allCloseBtnInstances:')
+            // console.log(allCloseBtnInstances)
+
+            //проходим по ним циклом
+            allCloseBtnInstances.forEach((item, index) => {
+                // console.log('closeBtn instance:')
+                // console.log(item)
+                //и на каждый элемент вешаем обработчик событий
+                item.addEventListener('click', this.hide.bind(this));
+                item.addEventListener('touchstart', this.hide.bind(this));
+            })
         });
 
 

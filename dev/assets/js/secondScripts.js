@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const phone = document.querySelector('.form__input_phone');
     const mask = IMask(phone, { mask: '+{7}(000)000-00-00' });
 
+
     //активируем попап
     const popup = new Popup({
         overlaySelector: '.popup_overlay',
@@ -28,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
         //для closeBtnSelectors и closeOnKeys тоже самое
 
         //триггеры:
-        triggerSelectors: ['.btn_cart'], //эементы вызывающие появление попапа
+        triggerSelectors: ['.popup-trigger'], //эементы вызывающие появление попапа
         closeBtnSelectors: ['.popup__close', '.popup__send'], //элементы закрывающие попап (крестик, кнопка Отправить в попапе)
         openOnKeys: [], //клавиши по которым должен открываться попап. должен быть массивом кнопок
         closeOnKeys: [27], //esc 27, должен быть массивом кнопок
@@ -36,9 +37,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         //autocloseTime: 2000, //ms
     });
-
-    console.log(popup);
-
 
 
     $('.slider').slick({

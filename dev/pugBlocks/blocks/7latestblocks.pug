@@ -12,7 +12,7 @@ mixin blog(blogClass, dirToImg, professionText, blogSubtitle, blogDescription, b
                 each i in blogDescription
                     p.i(class = blogDescriptionClass) !{i}
 
-                button.btn.btn__readMore Read more
+                button(class='btn btn__readMore popup-trigger') Read more
 
 .latestBlocks
     .wrapper
@@ -22,7 +22,7 @@ mixin blog(blogClass, dirToImg, professionText, blogSubtitle, blogDescription, b
                 |Dignissimos ducimus qui blanditiis praesentium 
                 |voluptatum deleniti #[br] atque corrupti quos dolores et quas molestias.
                 //- вот таким образом вставляется большой текст для удобства 
-            button.btn View all posts
+            button(class='btn popup-trigger') View all posts
 
         .row.latestBlocks__row
             +blog('blog1', 'assets/img/7latestblogs/webp/blog_1.webp', 
